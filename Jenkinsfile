@@ -5,27 +5,15 @@ pipeline {
     }
     
     stages{
-        stage('Init'){
+        stage('Build'){
             steps {
-                echo "Testing......"
+                sh 'mvn clean package'
             }
-<<<<<<< HEAD
             post {
                 success {
                     echo '开始存档.....'
                     archiveArtifacts artifacts: '**/target/*.war'
                 }
-=======
-        }
- 	stage('Build'){
-            steps {
-                echo "Building......"
-            }
-        }
- 	stage('Deploy'){
-            steps {
-                echo "Code Deployed."
->>>>>>> 1471cb9776f3d4ce8ee5b2fe6a3bcb2708774562
             }
         }
     }
